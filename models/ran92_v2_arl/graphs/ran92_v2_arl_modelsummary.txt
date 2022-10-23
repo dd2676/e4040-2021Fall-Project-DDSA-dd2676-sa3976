@@ -1,0 +1,1741 @@
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ Model_Input (InputLayer)       [(None, 32, 32, 3)]  0           []                               
+                                                                                                  
+ Conv1_In (Conv2D)              (None, 32, 32, 32)   864         ['Model_Input[0][0]']            
+                                                                                                  
+ BN_In (BatchNormalization)     (None, 32, 32, 32)   128         ['Conv1_In[0][0]']               
+                                                                                                  
+ ReLU_In (Activation)           (None, 32, 32, 32)   0           ['BN_In[0][0]']                  
+                                                                                                  
+ ResUnit_L1_NotAttnModule_1_NoD  (None, 32, 32, 32)  128         ['ReLU_In[0][0]']                
+ S (BatchNormalization)                                                                           
+                                                                                                  
+ ResUnit_L2_NotAttnModule_1_NoD  (None, 32, 32, 32)  0           ['ResUnit_L1_NotAttnModule_1_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_NotAttnModule_1_NoD  (None, 32, 32, 32)  1024        ['ResUnit_L2_NotAttnModule_1_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_NotAttnModule_1_NoD  (None, 32, 32, 32)  128         ['ResUnit_L3_NotAttnModule_1_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_NotAttnModule_1_NoD  (None, 32, 32, 32)  0           ['ResUnit_L4_NotAttnModule_1_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_NotAttnModule_1_NoD  (None, 32, 32, 32)  9216        ['ResUnit_L5_NotAttnModule_1_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_NotAttnModule_1_NoD  (None, 32, 32, 32)  128         ['ResUnit_L6_NotAttnModule_1_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_NotAttnModule_1_NoD  (None, 32, 32, 32)  0           ['ResUnit_L7_NotAttnModule_1_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_NotAttnModule_1_NoD  (None, 32, 32, 128)  4096       ['ResUnit_L8_NotAttnModule_1_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_NotAttnModule_1_No  (None, 32, 32, 128)  4096       ['ResUnit_L2_NotAttnModule_1_NoDS
+ DS (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_NotAttnModule_1_No  (None, 32, 32, 128)  0          ['ResUnit_L9_NotAttnModule_1_NoDS
+ DS (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_NotAttnModule_1_NoD
+                                                                 S[0][0]']                        
+                                                                                                  
+ ResUnit_L1_Input-p-1-1_AttnS1-  (None, 32, 32, 128)  512        ['ResUnit_L11_NotAttnModule_1_NoD
+ 1 (BatchNormalization)                                          S[0][0]']                        
+                                                                                                  
+ ResUnit_L2_Input-p-1-1_AttnS1-  (None, 32, 32, 128)  0          ['ResUnit_L1_Input-p-1-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  4096        ['ResUnit_L2_Input-p-1-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L3_Input-p-1-1_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L4_Input-p-1-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  9216        ['ResUnit_L5_Input-p-1-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L6_Input-p-1-1_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_Input-p-1-1_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L7_Input-p-1-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Input-p-1-1_AttnS1-  (None, 32, 32, 128)  4096       ['ResUnit_L8_Input-p-1-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Input-p-1-1_AttnS1  (None, 32, 32, 128)  16384      ['ResUnit_L2_Input-p-1-1_AttnS1-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_Input-p-1-1_AttnS1  (None, 32, 32, 128)  0          ['ResUnit_L9_Input-p-1-1_AttnS1-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS1-
+                                                                 1[0][0]']                        
+                                                                                                  
+ MaxPool_DownSamp-1_Mask_AttnS1  (None, 16, 16, 128)  0          ['ResUnit_L11_Input-p-1-1_AttnS1-
+ -1 (MaxPooling2D)                                               1[0][0]']                        
+                                                                                                  
+ ResUnit_L1_DownSamp-r-1-1_Mask  (None, 16, 16, 128)  512        ['MaxPool_DownSamp-1_Mask_AttnS1-
+ _AttnS1-1 (BatchNormalization)                                  1[0][0]']                        
+                                                                                                  
+ ResUnit_L2_DownSamp-r-1-1_Mask  (None, 16, 16, 128)  0          ['ResUnit_L1_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Activation)                                          AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L3_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  4096        ['ResUnit_L2_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Conv2D)                                              AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L4_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  128         ['ResUnit_L3_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (BatchNormalization)                                  AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L5_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  0           ['ResUnit_L4_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Activation)                                          AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L6_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  9216        ['ResUnit_L5_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Conv2D)                                              AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L7_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  128         ['ResUnit_L6_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (BatchNormalization)                                  AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L8_DownSamp-r-1-1_Mask  (None, 16, 16, 32)  0           ['ResUnit_L7_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Activation)                                          AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L9_DownSamp-r-1-1_Mask  (None, 16, 16, 128)  4096       ['ResUnit_L8_DownSamp-r-1-1_Mask_
+ _AttnS1-1 (Conv2D)                                              AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L10_DownSamp-r-1-1_Mas  (None, 16, 16, 128)  16384      ['ResUnit_L2_DownSamp-r-1-1_Mask_
+ k_AttnS1-1 (Conv2D)                                             AttnS1-1[0][0]']                 
+                                                                                                  
+ ResUnit_L11_DownSamp-r-1-1_Mas  (None, 16, 16, 128)  0          ['ResUnit_L9_DownSamp-r-1-1_Mask_
+ k_AttnS1-1 (Add)                                                AttnS1-1[0][0]',                 
+                                                                  'ResUnit_L10_DownSamp-r-1-1_Mask
+                                                                 _AttnS1-1[0][0]']                
+                                                                                                  
+ MaxPool_DownSamp-2_Mask_AttnS1  (None, 8, 8, 128)   0           ['ResUnit_L11_DownSamp-r-1-1_Mask
+ -1 (MaxPooling2D)                                               _AttnS1-1[0][0]']                
+                                                                                                  
+ ResUnit_L1_Mid-2r-2-1_Mask_Att  (None, 8, 8, 128)   512         ['MaxPool_DownSamp-2_Mask_AttnS1-
+ nS1-1 (BatchNormalization)                                      1[0][0]']                        
+                                                                                                  
+ ResUnit_L2_Mid-2r-2-1_Mask_Att  (None, 8, 8, 128)   0           ['ResUnit_L1_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L3_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    4096        ['ResUnit_L2_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L4_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    128         ['ResUnit_L3_Mid-2r-2-1_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L5_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    0           ['ResUnit_L4_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L6_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    9216        ['ResUnit_L5_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L7_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    128         ['ResUnit_L6_Mid-2r-2-1_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L8_Mid-2r-2-1_Mask_Att  (None, 8, 8, 32)    0           ['ResUnit_L7_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L9_Mid-2r-2-1_Mask_Att  (None, 8, 8, 128)   4096        ['ResUnit_L8_Mid-2r-2-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L10_Mid-2r-2-1_Mask_At  (None, 8, 8, 128)   16384       ['ResUnit_L2_Mid-2r-2-1_Mask_Attn
+ tnS1-1 (Conv2D)                                                 S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L11_Mid-2r-2-1_Mask_At  (None, 8, 8, 128)   0           ['ResUnit_L9_Mid-2r-2-1_Mask_Attn
+ tnS1-1 (Add)                                                    S1-1[0][0]',                     
+                                                                  'ResUnit_L10_Mid-2r-2-1_Mask_Att
+                                                                 nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L1_Mid-2r-2-2_Mask_Att  (None, 8, 8, 128)   512         ['ResUnit_L11_Mid-2r-2-1_Mask_Att
+ nS1-1 (BatchNormalization)                                      nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L2_Mid-2r-2-2_Mask_Att  (None, 8, 8, 128)   0           ['ResUnit_L1_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L3_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    4096        ['ResUnit_L2_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L1_SkipConn-1_Mask_Att  (None, 16, 16, 128)  512        ['ResUnit_L11_DownSamp-r-1-1_Mask
+ nS1-1 (BatchNormalization)                                      _AttnS1-1[0][0]']                
+                                                                                                  
+ ResUnit_L4_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    128         ['ResUnit_L3_Mid-2r-2-2_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L2_SkipConn-1_Mask_Att  (None, 16, 16, 128)  0          ['ResUnit_L1_SkipConn-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L5_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    0           ['ResUnit_L4_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L3_SkipConn-1_Mask_Att  (None, 16, 16, 32)  4096        ['ResUnit_L2_SkipConn-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-1_AttnS1-  (None, 32, 32, 128)  512        ['ResUnit_L11_Input-p-1-1_AttnS1-
+ 1 (BatchNormalization)                                          1[0][0]']                        
+                                                                                                  
+ ResUnit_L6_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    9216        ['ResUnit_L5_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L4_SkipConn-1_Mask_Att  (None, 16, 16, 32)  128         ['ResUnit_L3_SkipConn-1_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-1_AttnS1-  (None, 32, 32, 128)  0          ['ResUnit_L1_Trunk-t-2-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L7_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    128         ['ResUnit_L6_Mid-2r-2-2_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L5_SkipConn-1_Mask_Att  (None, 16, 16, 32)  0           ['ResUnit_L4_SkipConn-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  4096        ['ResUnit_L2_Trunk-t-2-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L8_Mid-2r-2-2_Mask_Att  (None, 8, 8, 32)    0           ['ResUnit_L7_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L6_SkipConn-1_Mask_Att  (None, 16, 16, 32)  9216        ['ResUnit_L5_SkipConn-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L3_Trunk-t-2-1_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Mid-2r-2-2_Mask_Att  (None, 8, 8, 128)   4096        ['ResUnit_L8_Mid-2r-2-2_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L10_Mid-2r-2-2_Mask_At  (None, 8, 8, 128)   16384       ['ResUnit_L2_Mid-2r-2-2_Mask_Attn
+ tnS1-1 (Conv2D)                                                 S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L7_SkipConn-1_Mask_Att  (None, 16, 16, 32)  128         ['ResUnit_L6_SkipConn-1_Mask_Attn
+ nS1-1 (BatchNormalization)                                      S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L4_Trunk-t-2-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_Mid-2r-2-2_Mask_At  (None, 8, 8, 128)   0           ['ResUnit_L9_Mid-2r-2-2_Mask_Attn
+ tnS1-1 (Add)                                                    S1-1[0][0]',                     
+                                                                  'ResUnit_L10_Mid-2r-2-2_Mask_Att
+                                                                 nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L8_SkipConn-1_Mask_Att  (None, 16, 16, 32)  0           ['ResUnit_L7_SkipConn-1_Mask_Attn
+ nS1-1 (Activation)                                              S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  9216        ['ResUnit_L5_Trunk-t-2-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ UpSamp2D-1_Mask_AttnS1-1 (UpSa  (None, 16, 16, 128)  0          ['ResUnit_L11_Mid-2r-2-2_Mask_Att
+ mpling2D)                                                       nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L9_SkipConn-1_Mask_Att  (None, 16, 16, 128)  4096       ['ResUnit_L8_SkipConn-1_Mask_Attn
+ nS1-1 (Conv2D)                                                  S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L10_SkipConn-1_Mask_At  (None, 16, 16, 128)  16384      ['ResUnit_L2_SkipConn-1_Mask_Attn
+ tnS1-1 (Conv2D)                                                 S1-1[0][0]']                     
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L6_Trunk-t-2-1_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ Add_L1_AttnS1-1 (Add)          (None, 16, 16, 128)  0           ['ResUnit_L11_DownSamp-r-1-1_Mask
+                                                                 _AttnS1-1[0][0]',                
+                                                                  'UpSamp2D-1_Mask_AttnS1-1[0][0]'
+                                                                 ]                                
+                                                                                                  
+ ResUnit_L11_SkipConn-1_Mask_At  (None, 16, 16, 128)  0          ['ResUnit_L9_SkipConn-1_Mask_Attn
+ tnS1-1 (Add)                                                    S1-1[0][0]',                     
+                                                                  'ResUnit_L10_SkipConn-1_Mask_Att
+                                                                 nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-1_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L7_Trunk-t-2-1_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ Add_L2_AttnS1-1 (Add)          (None, 16, 16, 128)  0           ['Add_L1_AttnS1-1[0][0]',        
+                                                                  'ResUnit_L11_SkipConn-1_Mask_Att
+                                                                 nS1-1[0][0]']                    
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-1_AttnS1-  (None, 32, 32, 128)  4096       ['ResUnit_L8_Trunk-t-2-1_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-1_AttnS1  (None, 32, 32, 128)  16384      ['ResUnit_L2_Trunk-t-2-1_AttnS1-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-1_Mask_A  (None, 16, 16, 128)  512        ['Add_L2_AttnS1-1[0][0]']        
+ ttnS1-1 (BatchNormalization)                                                                     
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-1_AttnS1  (None, 32, 32, 128)  0          ['ResUnit_L9_Trunk-t-2-1_AttnS1-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS1-
+                                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-1_Mask_A  (None, 16, 16, 128)  0          ['ResUnit_L1_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Activation)                                            tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-2_AttnS1-  (None, 32, 32, 128)  512        ['ResUnit_L11_Trunk-t-2-1_AttnS1-
+ 1 (BatchNormalization)                                          1[0][0]']                        
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  4096        ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Conv2D)                                                tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-2_AttnS1-  (None, 32, 32, 128)  0          ['ResUnit_L1_Trunk-t-2-2_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  128         ['ResUnit_L3_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (BatchNormalization)                                    tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  4096        ['ResUnit_L2_Trunk-t-2-2_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  0           ['ResUnit_L4_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Activation)                                            tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L3_Trunk-t-2-2_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  9216        ['ResUnit_L5_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Conv2D)                                                tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L4_Trunk-t-2-2_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  128         ['ResUnit_L6_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (BatchNormalization)                                    tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  9216        ['ResUnit_L5_Trunk-t-2-2_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-1_Mask_A  (None, 16, 16, 32)  0           ['ResUnit_L7_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Activation)                                            tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  128         ['ResUnit_L6_Trunk-t-2-2_AttnS1-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-1_Mask_A  (None, 16, 16, 128)  4096       ['ResUnit_L8_UpSamp-r-1-1_Mask_At
+ ttnS1-1 (Conv2D)                                                tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-1_Mask_  (None, 16, 16, 128)  16384      ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ AttnS1-1 (Conv2D)                                               tnS1-1[0][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-2_AttnS1-  (None, 32, 32, 32)  0           ['ResUnit_L7_Trunk-t-2-2_AttnS1-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-1_Mask_  (None, 16, 16, 128)  0          ['ResUnit_L9_UpSamp-r-1-1_Mask_At
+ AttnS1-1 (Add)                                                  tnS1-1[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS1-1[0][0]']                  
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-2_AttnS1-  (None, 32, 32, 128)  4096       ['ResUnit_L8_Trunk-t-2-2_AttnS1-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-2_AttnS1  (None, 32, 32, 128)  16384      ['ResUnit_L2_Trunk-t-2-2_AttnS1-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ UpSamp2D-2_Mask_AttnS1-1 (UpSa  (None, 32, 32, 128)  0          ['ResUnit_L11_UpSamp-r-1-1_Mask_A
+ mpling2D)                                                       ttnS1-1[0][0]']                  
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-2_AttnS1  (None, 32, 32, 128)  0          ['ResUnit_L9_Trunk-t-2-2_AttnS1-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS1-
+                                                                 1[0][0]']                        
+                                                                                                  
+ Add_L3_AttnS1-1 (Add)          (None, 32, 32, 128)  0           ['UpSamp2D-2_Mask_AttnS1-1[0][0]'
+                                                                 , 'ResUnit_L11_Trunk-t-2-2_AttnS1
+                                                                 -1[0][0]']                       
+                                                                                                  
+ SpcConv_Mask_L1_Attn_S1-1 (Bat  (None, 32, 32, 128)  512        ['Add_L3_AttnS1-1[0][0]']        
+ chNormalization)                                                                                 
+                                                                                                  
+ SpcConv_Mask_L2_Attn_S1-1 (Act  (None, 32, 32, 128)  0          ['SpcConv_Mask_L1_Attn_S1-1[0][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ SpcConv_Mask_L3_Attn_S1-1 (Con  (None, 32, 32, 128)  16384      ['SpcConv_Mask_L2_Attn_S1-1[0][0]
+ v2D)                                                            ']                               
+                                                                                                  
+ SpcConv_Mask_L4_Attn_S1-1 (Bat  (None, 32, 32, 128)  512        ['SpcConv_Mask_L3_Attn_S1-1[0][0]
+ chNormalization)                                                ']                               
+                                                                                                  
+ SpcConv_Mask_L5_Attn_S1-1 (Act  (None, 32, 32, 128)  0          ['SpcConv_Mask_L4_Attn_S1-1[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S1-1[0][0]
+                                                                 ']                               
+                                                                                                  
+ SpcConv_Mask_L7_Attn_S1-1 (Act  (None, 32, 32, 128)  0          ['SpcConv_Mask_L5_Attn_S1-1[1][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ Mult_L1_AttnS1-1 (Multiply)    (None, 32, 32, 128)  0           ['SpcConv_Mask_L7_Attn_S1-1[0][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS1-
+                                                                 1[0][0]']                        
+                                                                                                  
+ Add_L4_AttnS1-1 (Add)          (None, 32, 32, 128)  0           ['Mult_L1_AttnS1-1[0][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS1-
+                                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L1_Output-p-1-1_AttnS1  (None, 32, 32, 128)  512        ['Add_L4_AttnS1-1[0][0]']        
+ -1 (BatchNormalization)                                                                          
+                                                                                                  
+ ResUnit_L2_Output-p-1-1_AttnS1  (None, 32, 32, 128)  0          ['ResUnit_L1_Output-p-1-1_AttnS1-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L3_Output-p-1-1_AttnS1  (None, 32, 32, 32)  4096        ['ResUnit_L2_Output-p-1-1_AttnS1-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L4_Output-p-1-1_AttnS1  (None, 32, 32, 32)  128         ['ResUnit_L3_Output-p-1-1_AttnS1-
+ -1 (BatchNormalization)                                         1[0][0]']                        
+                                                                                                  
+ ResUnit_L5_Output-p-1-1_AttnS1  (None, 32, 32, 32)  0           ['ResUnit_L4_Output-p-1-1_AttnS1-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L6_Output-p-1-1_AttnS1  (None, 32, 32, 32)  9216        ['ResUnit_L5_Output-p-1-1_AttnS1-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L7_Output-p-1-1_AttnS1  (None, 32, 32, 32)  128         ['ResUnit_L6_Output-p-1-1_AttnS1-
+ -1 (BatchNormalization)                                         1[0][0]']                        
+                                                                                                  
+ ResUnit_L8_Output-p-1-1_AttnS1  (None, 32, 32, 32)  0           ['ResUnit_L7_Output-p-1-1_AttnS1-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L9_Output-p-1-1_AttnS1  (None, 32, 32, 128)  4096       ['ResUnit_L8_Output-p-1-1_AttnS1-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L10_Output-p-1-1_AttnS  (None, 32, 32, 128)  16384      ['ResUnit_L2_Output-p-1-1_AttnS1-
+ 1-1 (Conv2D)                                                    1[0][0]']                        
+                                                                                                  
+ ResUnit_L11_Output-p-1-1_AttnS  (None, 32, 32, 128)  0          ['ResUnit_L9_Output-p-1-1_AttnS1-
+ 1-1 (Add)                                                       1[0][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS1
+                                                                 -1[0][0]']                       
+                                                                                                  
+ ResUnit_L1_NotAttnModule_2_DS   (None, 32, 32, 128)  512        ['ResUnit_L11_Output-p-1-1_AttnS1
+ (BatchNormalization)                                            -1[0][0]']                       
+                                                                                                  
+ ResUnit_L2_NotAttnModule_2_DS   (None, 32, 32, 128)  0          ['ResUnit_L1_NotAttnModule_2_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L3_NotAttnModule_2_DS   (None, 32, 32, 64)  8192        ['ResUnit_L2_NotAttnModule_2_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L4_NotAttnModule_2_DS   (None, 32, 32, 64)  256         ['ResUnit_L3_NotAttnModule_2_DS[0
+ (BatchNormalization)                                            ][0]']                           
+                                                                                                  
+ ResUnit_L5_NotAttnModule_2_DS   (None, 32, 32, 64)  0           ['ResUnit_L4_NotAttnModule_2_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L6_NotAttnModule_2_DS   (None, 16, 16, 64)  36864       ['ResUnit_L5_NotAttnModule_2_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L7_NotAttnModule_2_DS   (None, 16, 16, 64)  256         ['ResUnit_L6_NotAttnModule_2_DS[0
+ (BatchNormalization)                                            ][0]']                           
+                                                                                                  
+ ResUnit_L8_NotAttnModule_2_DS   (None, 16, 16, 64)  0           ['ResUnit_L7_NotAttnModule_2_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L9_NotAttnModule_2_DS   (None, 16, 16, 256)  16384      ['ResUnit_L8_NotAttnModule_2_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L10_NotAttnModule_2_DS  (None, 16, 16, 256)  32768      ['ResUnit_L2_NotAttnModule_2_DS[0
+  (Conv2D)                                                       ][0]']                           
+                                                                                                  
+ ResUnit_L11_NotAttnModule_2_DS  (None, 16, 16, 256)  0          ['ResUnit_L9_NotAttnModule_2_DS[0
+  (Add)                                                          ][0]',                           
+                                                                  'ResUnit_L10_NotAttnModule_2_DS[
+                                                                 0][0]']                          
+                                                                                                  
+ ResUnit_L1_Input-p-1-1_AttnS2-  (None, 16, 16, 256)  1024       ['ResUnit_L11_NotAttnModule_2_DS[
+ 1 (BatchNormalization)                                          0][0]',                          
+                                                                  'ResUnit_L11_Output-p-1-1_AttnS2
+                                                                 -1[0][0]']                       
+                                                                                                  
+ ResUnit_L2_Input-p-1-1_AttnS2-  (None, 16, 16, 256)  0          ['ResUnit_L1_Input-p-1-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L1_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L3_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  16384       ['ResUnit_L2_Input-p-1-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L2_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L4_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L3_Input-p-1-1_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L3_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L5_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L4_Input-p-1-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L4_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L6_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  36864       ['ResUnit_L5_Input-p-1-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L5_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L7_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L6_Input-p-1-1_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L6_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L8_Input-p-1-1_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L7_Input-p-1-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L7_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L9_Input-p-1-1_AttnS2-  (None, 16, 16, 256)  16384      ['ResUnit_L8_Input-p-1-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L8_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L10_Input-p-1-1_AttnS2  (None, 16, 16, 256)  65536      ['ResUnit_L2_Input-p-1-1_AttnS2-1
+ -1 (Conv2D)                                                     [0][0]',                         
+                                                                  'ResUnit_L2_Input-p-1-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L11_Input-p-1-1_AttnS2  (None, 16, 16, 256)  0          ['ResUnit_L9_Input-p-1-1_AttnS2-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS2-
+                                                                 1[0][0]',                        
+                                                                  'ResUnit_L9_Input-p-1-1_AttnS2-1
+                                                                 [1][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ MaxPool_DownSamp-1_Mask_AttnS2  (None, 8, 8, 256)   0           ['ResUnit_L11_Input-p-1-1_AttnS2-
+ -1 (MaxPooling2D)                                               1[0][0]',                        
+                                                                  'ResUnit_L11_Input-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-1_Mask_A  (None, 8, 8, 256)   1024        ['MaxPool_DownSamp-1_Mask_AttnS2-
+ ttnS2-1 (BatchNormalization)                                    1[0][0]',                        
+                                                                  'MaxPool_DownSamp-1_Mask_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-1_Mask_A  (None, 8, 8, 256)   0           ['ResUnit_L1_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L1_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-1_AttnS2-  (None, 16, 16, 256)  1024       ['ResUnit_L11_Input-p-1-1_AttnS2-
+ 1 (BatchNormalization)                                          1[0][0]',                        
+                                                                  'ResUnit_L11_Input-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    16384       ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L2_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-1_AttnS2-  (None, 16, 16, 256)  0          ['ResUnit_L1_Trunk-t-2-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L1_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    256         ['ResUnit_L3_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (BatchNormalization)                                    tnS2-1[0][0]',                   
+                                                                  'ResUnit_L3_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  16384       ['ResUnit_L2_Trunk-t-2-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L2_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    0           ['ResUnit_L4_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L4_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L3_Trunk-t-2-1_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L3_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    36864       ['ResUnit_L5_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L5_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L4_Trunk-t-2-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L4_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    256         ['ResUnit_L6_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (BatchNormalization)                                    tnS2-1[0][0]',                   
+                                                                  'ResUnit_L6_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  36864       ['ResUnit_L5_Trunk-t-2-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L5_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-1_Mask_A  (None, 8, 8, 64)    0           ['ResUnit_L7_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L7_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L6_Trunk-t-2-1_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L6_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-1_Mask_A  (None, 8, 8, 256)   16384       ['ResUnit_L8_UpSamp-r-1-1_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L8_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-1_Mask_  (None, 8, 8, 256)   65536       ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ AttnS2-1 (Conv2D)                                               tnS2-1[0][0]',                   
+                                                                  'ResUnit_L2_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-1_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L7_Trunk-t-2-1_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L7_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-1_Mask_  (None, 8, 8, 256)   0           ['ResUnit_L9_UpSamp-r-1-1_Mask_At
+ AttnS2-1 (Add)                                                  tnS2-1[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS2-1[0][0]',                  
+                                                                  'ResUnit_L9_UpSamp-r-1-1_Mask_At
+                                                                 tnS2-1[1][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS2-1[1][0]']                  
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-1_AttnS2-  (None, 16, 16, 256)  16384      ['ResUnit_L8_Trunk-t-2-1_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L8_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-1_AttnS2  (None, 16, 16, 256)  65536      ['ResUnit_L2_Trunk-t-2-1_AttnS2-1
+ -1 (Conv2D)                                                     [0][0]',                         
+                                                                  'ResUnit_L2_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-2_Mask_A  (None, 8, 8, 256)   1024        ['ResUnit_L11_UpSamp-r-1-1_Mask_A
+ ttnS2-1 (BatchNormalization)                                    ttnS2-1[0][0]',                  
+                                                                  'ResUnit_L11_UpSamp-r-1-1_Mask_A
+                                                                 ttnS2-1[1][0]']                  
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-1_AttnS2  (None, 16, 16, 256)  0          ['ResUnit_L9_Trunk-t-2-1_AttnS2-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS2-
+                                                                 1[0][0]',                        
+                                                                  'ResUnit_L9_Trunk-t-2-1_AttnS2-1
+                                                                 [1][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-2_Mask_A  (None, 8, 8, 256)   0           ['ResUnit_L1_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L1_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-2_AttnS2-  (None, 16, 16, 256)  1024       ['ResUnit_L11_Trunk-t-2-1_AttnS2-
+ 1 (BatchNormalization)                                          1[0][0]',                        
+                                                                  'ResUnit_L11_Trunk-t-2-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    16384       ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L2_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-2_AttnS2-  (None, 16, 16, 256)  0          ['ResUnit_L1_Trunk-t-2-2_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L1_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    256         ['ResUnit_L3_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (BatchNormalization)                                    tnS2-1[0][0]',                   
+                                                                  'ResUnit_L3_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  16384       ['ResUnit_L2_Trunk-t-2-2_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L2_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    0           ['ResUnit_L4_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L4_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L3_Trunk-t-2-2_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L3_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    36864       ['ResUnit_L5_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L5_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L4_Trunk-t-2-2_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L4_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    256         ['ResUnit_L6_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (BatchNormalization)                                    tnS2-1[0][0]',                   
+                                                                  'ResUnit_L6_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  36864       ['ResUnit_L5_Trunk-t-2-2_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L5_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-2_Mask_A  (None, 8, 8, 64)    0           ['ResUnit_L7_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Activation)                                            tnS2-1[0][0]',                   
+                                                                  'ResUnit_L7_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  256         ['ResUnit_L6_Trunk-t-2-2_AttnS2-1
+ 1 (BatchNormalization)                                          [0][0]',                         
+                                                                  'ResUnit_L6_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-2_Mask_A  (None, 8, 8, 256)   16384       ['ResUnit_L8_UpSamp-r-1-2_Mask_At
+ ttnS2-1 (Conv2D)                                                tnS2-1[0][0]',                   
+                                                                  'ResUnit_L8_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-2_Mask_  (None, 8, 8, 256)   65536       ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ AttnS2-1 (Conv2D)                                               tnS2-1[0][0]',                   
+                                                                  'ResUnit_L2_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-2_AttnS2-  (None, 16, 16, 64)  0           ['ResUnit_L7_Trunk-t-2-2_AttnS2-1
+ 1 (Activation)                                                  [0][0]',                         
+                                                                  'ResUnit_L7_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-2_Mask_  (None, 8, 8, 256)   0           ['ResUnit_L9_UpSamp-r-1-2_Mask_At
+ AttnS2-1 (Add)                                                  tnS2-1[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-2_Mask_A
+                                                                 ttnS2-1[0][0]',                  
+                                                                  'ResUnit_L9_UpSamp-r-1-2_Mask_At
+                                                                 tnS2-1[1][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-2_Mask_A
+                                                                 ttnS2-1[1][0]']                  
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-2_AttnS2-  (None, 16, 16, 256)  16384      ['ResUnit_L8_Trunk-t-2-2_AttnS2-1
+ 1 (Conv2D)                                                      [0][0]',                         
+                                                                  'ResUnit_L8_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-2_AttnS2  (None, 16, 16, 256)  65536      ['ResUnit_L2_Trunk-t-2-2_AttnS2-1
+ -1 (Conv2D)                                                     [0][0]',                         
+                                                                  'ResUnit_L2_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]']                         
+                                                                                                  
+ UpSamp2D-1_Mask_AttnS2-1 (UpSa  (None, 16, 16, 256)  0          ['ResUnit_L11_UpSamp-r-1-2_Mask_A
+ mpling2D)                                                       ttnS2-1[0][0]',                  
+                                                                  'ResUnit_L11_UpSamp-r-1-2_Mask_A
+                                                                 ttnS2-1[1][0]']                  
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-2_AttnS2  (None, 16, 16, 256)  0          ['ResUnit_L9_Trunk-t-2-2_AttnS2-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS2-
+                                                                 1[0][0]',                        
+                                                                  'ResUnit_L9_Trunk-t-2-2_AttnS2-1
+                                                                 [1][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ Add_L1_AttnS2-1 (Add)          (None, 16, 16, 256)  0           ['UpSamp2D-1_Mask_AttnS2-1[0][0]'
+                                                                 , 'ResUnit_L11_Trunk-t-2-2_AttnS2
+                                                                 -1[0][0]',                       
+                                                                  'UpSamp2D-1_Mask_AttnS2-1[1][0]'
+                                                                 , 'ResUnit_L11_Trunk-t-2-2_AttnS2
+                                                                 -1[1][0]']                       
+                                                                                                  
+ SpcConv_Mask_L1_Attn_S2-1 (Bat  (None, 16, 16, 256)  1024       ['Add_L1_AttnS2-1[0][0]',        
+ chNormalization)                                                 'Add_L1_AttnS2-1[1][0]']        
+                                                                                                  
+ SpcConv_Mask_L2_Attn_S2-1 (Act  (None, 16, 16, 256)  0          ['SpcConv_Mask_L1_Attn_S2-1[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L1_Attn_S2-1[1][0]
+                                                                 ']                               
+                                                                                                  
+ SpcConv_Mask_L3_Attn_S2-1 (Con  (None, 16, 16, 256)  65536      ['SpcConv_Mask_L2_Attn_S2-1[0][0]
+ v2D)                                                            ',                               
+                                                                  'SpcConv_Mask_L2_Attn_S2-1[1][0]
+                                                                 ']                               
+                                                                                                  
+ SpcConv_Mask_L4_Attn_S2-1 (Bat  (None, 16, 16, 256)  1024       ['SpcConv_Mask_L3_Attn_S2-1[0][0]
+ chNormalization)                                                ',                               
+                                                                  'SpcConv_Mask_L3_Attn_S2-1[1][0]
+                                                                 ']                               
+                                                                                                  
+ SpcConv_Mask_L5_Attn_S2-1 (Act  (None, 16, 16, 256)  0          ['SpcConv_Mask_L4_Attn_S2-1[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S2-1[0][0]
+                                                                 ',                               
+                                                                  'SpcConv_Mask_L4_Attn_S2-1[1][0]
+                                                                 ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S2-1[2][0]
+                                                                 ']                               
+                                                                                                  
+ SpcConv_Mask_L7_Attn_S2-1 (Act  (None, 16, 16, 256)  0          ['SpcConv_Mask_L5_Attn_S2-1[1][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S2-1[3][0]
+                                                                 ']                               
+                                                                                                  
+ Mult_L1_AttnS2-1 (Multiply)    (None, 16, 16, 256)  0           ['SpcConv_Mask_L7_Attn_S2-1[0][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS2-
+                                                                 1[0][0]',                        
+                                                                  'SpcConv_Mask_L7_Attn_S2-1[1][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ Add_L2_AttnS2-1 (Add)          (None, 16, 16, 256)  0           ['Mult_L1_AttnS2-1[0][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS2-
+                                                                 1[0][0]',                        
+                                                                  'Mult_L1_AttnS2-1[1][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L1_Output-p-1-1_AttnS2  (None, 16, 16, 256)  1024       ['Add_L2_AttnS2-1[0][0]',        
+ -1 (BatchNormalization)                                          'Add_L2_AttnS2-1[1][0]']        
+                                                                                                  
+ ResUnit_L2_Output-p-1-1_AttnS2  (None, 16, 16, 256)  0          ['ResUnit_L1_Output-p-1-1_AttnS2-
+ -1 (Activation)                                                 1[0][0]',                        
+                                                                  'ResUnit_L1_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L3_Output-p-1-1_AttnS2  (None, 16, 16, 64)  16384       ['ResUnit_L2_Output-p-1-1_AttnS2-
+ -1 (Conv2D)                                                     1[0][0]',                        
+                                                                  'ResUnit_L2_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L4_Output-p-1-1_AttnS2  (None, 16, 16, 64)  256         ['ResUnit_L3_Output-p-1-1_AttnS2-
+ -1 (BatchNormalization)                                         1[0][0]',                        
+                                                                  'ResUnit_L3_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L5_Output-p-1-1_AttnS2  (None, 16, 16, 64)  0           ['ResUnit_L4_Output-p-1-1_AttnS2-
+ -1 (Activation)                                                 1[0][0]',                        
+                                                                  'ResUnit_L4_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L6_Output-p-1-1_AttnS2  (None, 16, 16, 64)  36864       ['ResUnit_L5_Output-p-1-1_AttnS2-
+ -1 (Conv2D)                                                     1[0][0]',                        
+                                                                  'ResUnit_L5_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L7_Output-p-1-1_AttnS2  (None, 16, 16, 64)  256         ['ResUnit_L6_Output-p-1-1_AttnS2-
+ -1 (BatchNormalization)                                         1[0][0]',                        
+                                                                  'ResUnit_L6_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L8_Output-p-1-1_AttnS2  (None, 16, 16, 64)  0           ['ResUnit_L7_Output-p-1-1_AttnS2-
+ -1 (Activation)                                                 1[0][0]',                        
+                                                                  'ResUnit_L7_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L9_Output-p-1-1_AttnS2  (None, 16, 16, 256)  16384      ['ResUnit_L8_Output-p-1-1_AttnS2-
+ -1 (Conv2D)                                                     1[0][0]',                        
+                                                                  'ResUnit_L8_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L10_Output-p-1-1_AttnS  (None, 16, 16, 256)  65536      ['ResUnit_L2_Output-p-1-1_AttnS2-
+ 2-1 (Conv2D)                                                    1[0][0]',                        
+                                                                  'ResUnit_L2_Output-p-1-1_AttnS2-
+                                                                 1[1][0]']                        
+                                                                                                  
+ ResUnit_L11_Output-p-1-1_AttnS  (None, 16, 16, 256)  0          ['ResUnit_L9_Output-p-1-1_AttnS2-
+ 2-1 (Add)                                                       1[0][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS2
+                                                                 -1[0][0]',                       
+                                                                  'ResUnit_L9_Output-p-1-1_AttnS2-
+                                                                 1[1][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS2
+                                                                 -1[1][0]']                       
+                                                                                                  
+ ResUnit_L1_NotAttnModule_3_DS   (None, 16, 16, 256)  1024       ['ResUnit_L11_Output-p-1-1_AttnS2
+ (BatchNormalization)                                            -1[1][0]']                       
+                                                                                                  
+ ResUnit_L2_NotAttnModule_3_DS   (None, 16, 16, 256)  0          ['ResUnit_L1_NotAttnModule_3_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L3_NotAttnModule_3_DS   (None, 16, 16, 128)  32768      ['ResUnit_L2_NotAttnModule_3_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L4_NotAttnModule_3_DS   (None, 16, 16, 128)  512        ['ResUnit_L3_NotAttnModule_3_DS[0
+ (BatchNormalization)                                            ][0]']                           
+                                                                                                  
+ ResUnit_L5_NotAttnModule_3_DS   (None, 16, 16, 128)  0          ['ResUnit_L4_NotAttnModule_3_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L6_NotAttnModule_3_DS   (None, 8, 8, 128)   147456      ['ResUnit_L5_NotAttnModule_3_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L7_NotAttnModule_3_DS   (None, 8, 8, 128)   512         ['ResUnit_L6_NotAttnModule_3_DS[0
+ (BatchNormalization)                                            ][0]']                           
+                                                                                                  
+ ResUnit_L8_NotAttnModule_3_DS   (None, 8, 8, 128)   0           ['ResUnit_L7_NotAttnModule_3_DS[0
+ (Activation)                                                    ][0]']                           
+                                                                                                  
+ ResUnit_L9_NotAttnModule_3_DS   (None, 8, 8, 512)   65536       ['ResUnit_L8_NotAttnModule_3_DS[0
+ (Conv2D)                                                        ][0]']                           
+                                                                                                  
+ ResUnit_L10_NotAttnModule_3_DS  (None, 8, 8, 512)   131072      ['ResUnit_L2_NotAttnModule_3_DS[0
+  (Conv2D)                                                       ][0]']                           
+                                                                                                  
+ ResUnit_L11_NotAttnModule_3_DS  (None, 8, 8, 512)   0           ['ResUnit_L9_NotAttnModule_3_DS[0
+  (Add)                                                          ][0]',                           
+                                                                  'ResUnit_L10_NotAttnModule_3_DS[
+                                                                 0][0]']                          
+                                                                                                  
+ ResUnit_L1_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_NotAttnModule_3_DS[
+ 1 (BatchNormalization)                                          0][0]']                          
+                                                                                                  
+ ResUnit_L2_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Input-p-1-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Input-p-1-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Input-p-1-1_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Input-p-1-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Input-p-1-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Input-p-1-1_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Input-p-1-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Input-p-1-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Input-p-1-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Input-p-1-1_AttnS3-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_Input-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Input-p-1-1_AttnS3-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS3-
+                                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ ttnS3-1 (BatchNormalization)                                    1[0][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (BatchNormalization)                                    tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (BatchNormalization)                                    tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ 1 (BatchNormalization)                                          1[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-1_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ AttnS3-1 (Conv2D)                                               tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-1_Mask_At
+ AttnS3-1 (Add)                                                  tnS3-1[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS3-1[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-1_Mask_A
+ ttnS3-1 (BatchNormalization)                                    ttnS3-1[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-1_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (BatchNormalization)                                    tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-1_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-1_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-1_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-1_AttnS3-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (BatchNormalization)                                    tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-1_AttnS3-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS3-
+                                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Activation)                                            tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Trunk-t-2-1_AttnS3-
+ 1 (BatchNormalization)                                          1[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-2_Mask_At
+ ttnS3-1 (Conv2D)                                                tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ AttnS3-1 (Conv2D)                                               tnS3-1[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-2_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-2_Mask_At
+ AttnS3-1 (Add)                                                  tnS3-1[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-2_Mask_A
+                                                                 ttnS3-1[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-2_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L1_Attn_S3-1 (Bat  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-2_Mask_A
+ chNormalization)                                                ttnS3-1[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-2_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L2_Attn_S3-1 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L1_Attn_S3-1[0][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-2_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L3_Attn_S3-1 (Con  (None, 8, 8, 512)   262144      ['SpcConv_Mask_L2_Attn_S3-1[0][0]
+ v2D)                                                            ']                               
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-2_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L4_Attn_S3-1 (Bat  (None, 8, 8, 512)   2048        ['SpcConv_Mask_L3_Attn_S3-1[0][0]
+ chNormalization)                                                ']                               
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-2_AttnS3-1
+ 1 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L5_Attn_S3-1 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L4_Attn_S3-1[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S3-1[0][0]
+                                                                 ']                               
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-2_AttnS3-1
+ 1 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-2_AttnS3-1
+ 1 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-2_AttnS3-1
+ -1 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L7_Attn_S3-1 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L5_Attn_S3-1[1][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-2_AttnS3-1
+ -1 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS3-
+                                                                 1[0][0]']                        
+                                                                                                  
+ Mult_L1_AttnS3-1 (Multiply)    (None, 8, 8, 512)    0           ['SpcConv_Mask_L7_Attn_S3-1[0][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 1[0][0]']                        
+                                                                                                  
+ Add_L1_AttnS3-1 (Add)          (None, 8, 8, 512)    0           ['Mult_L1_AttnS3-1[0][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L1_Output-p-1-1_AttnS3  (None, 8, 8, 512)   2048        ['Add_L1_AttnS3-1[0][0]']        
+ -1 (BatchNormalization)                                                                          
+                                                                                                  
+ ResUnit_L2_Output-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L1_Output-p-1-1_AttnS3-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L3_Output-p-1-1_AttnS3  (None, 8, 8, 128)   65536       ['ResUnit_L2_Output-p-1-1_AttnS3-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L4_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L3_Output-p-1-1_AttnS3-
+ -1 (BatchNormalization)                                         1[0][0]']                        
+                                                                                                  
+ ResUnit_L5_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L4_Output-p-1-1_AttnS3-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L6_Output-p-1-1_AttnS3  (None, 8, 8, 128)   147456      ['ResUnit_L5_Output-p-1-1_AttnS3-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L7_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L6_Output-p-1-1_AttnS3-
+ -1 (BatchNormalization)                                         1[0][0]']                        
+                                                                                                  
+ ResUnit_L8_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L7_Output-p-1-1_AttnS3-
+ -1 (Activation)                                                 1[0][0]']                        
+                                                                                                  
+ ResUnit_L9_Output-p-1-1_AttnS3  (None, 8, 8, 512)   65536       ['ResUnit_L8_Output-p-1-1_AttnS3-
+ -1 (Conv2D)                                                     1[0][0]']                        
+                                                                                                  
+ ResUnit_L10_Output-p-1-1_AttnS  (None, 8, 8, 512)   262144      ['ResUnit_L2_Output-p-1-1_AttnS3-
+ 3-1 (Conv2D)                                                    1[0][0]']                        
+                                                                                                  
+ ResUnit_L11_Output-p-1-1_AttnS  (None, 8, 8, 512)   0           ['ResUnit_L9_Output-p-1-1_AttnS3-
+ 3-1 (Add)                                                       1[0][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS3
+                                                                 -1[0][0]']                       
+                                                                                                  
+ ResUnit_L1_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Output-p-1-1_AttnS3
+ 2 (BatchNormalization)                                          -1[0][0]']                       
+                                                                                                  
+ ResUnit_L2_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Input-p-1-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Input-p-1-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Input-p-1-1_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Input-p-1-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Input-p-1-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Input-p-1-1_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Input-p-1-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Input-p-1-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Input-p-1-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Input-p-1-1_AttnS3-2
+ -2 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_Input-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Input-p-1-1_AttnS3-2
+ -2 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS3-
+                                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ ttnS3-2 (BatchNormalization)                                    2[0][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (BatchNormalization)                                    tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (BatchNormalization)                                    tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ 2 (BatchNormalization)                                          2[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-1_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ AttnS3-2 (Conv2D)                                               tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-1_Mask_At
+ AttnS3-2 (Add)                                                  tnS3-2[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS3-2[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-1_Mask_A
+ ttnS3-2 (BatchNormalization)                                    ttnS3-2[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-1_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (BatchNormalization)                                    tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-1_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-1_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-1_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-1_AttnS3-2
+ -2 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (BatchNormalization)                                    tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-1_AttnS3-2
+ -2 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS3-
+                                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Activation)                                            tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Trunk-t-2-1_AttnS3-
+ 2 (BatchNormalization)                                          2[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-2_Mask_At
+ ttnS3-2 (Conv2D)                                                tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ AttnS3-2 (Conv2D)                                               tnS3-2[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-2_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-2_Mask_At
+ AttnS3-2 (Add)                                                  tnS3-2[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-2_Mask_A
+                                                                 ttnS3-2[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-2_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L1_Attn_S3-2 (Bat  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-2_Mask_A
+ chNormalization)                                                ttnS3-2[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-2_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L2_Attn_S3-2 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L1_Attn_S3-2[0][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-2_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L3_Attn_S3-2 (Con  (None, 8, 8, 512)   262144      ['SpcConv_Mask_L2_Attn_S3-2[0][0]
+ v2D)                                                            ']                               
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-2_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L4_Attn_S3-2 (Bat  (None, 8, 8, 512)   2048        ['SpcConv_Mask_L3_Attn_S3-2[0][0]
+ chNormalization)                                                ']                               
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-2_AttnS3-2
+ 2 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L5_Attn_S3-2 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L4_Attn_S3-2[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S3-2[0][0]
+                                                                 ']                               
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-2_AttnS3-2
+ 2 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-2_AttnS3-2
+ 2 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-2_AttnS3-2
+ -2 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L7_Attn_S3-2 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L5_Attn_S3-2[1][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-2_AttnS3-2
+ -2 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS3-
+                                                                 2[0][0]']                        
+                                                                                                  
+ Mult_L1_AttnS3-2 (Multiply)    (None, 8, 8, 512)    0           ['SpcConv_Mask_L7_Attn_S3-2[0][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 2[0][0]']                        
+                                                                                                  
+ Add_L1_AttnS3-2 (Add)          (None, 8, 8, 512)    0           ['Mult_L1_AttnS3-2[0][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L1_Output-p-1-1_AttnS3  (None, 8, 8, 512)   2048        ['Add_L1_AttnS3-2[0][0]']        
+ -2 (BatchNormalization)                                                                          
+                                                                                                  
+ ResUnit_L2_Output-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L1_Output-p-1-1_AttnS3-
+ -2 (Activation)                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L3_Output-p-1-1_AttnS3  (None, 8, 8, 128)   65536       ['ResUnit_L2_Output-p-1-1_AttnS3-
+ -2 (Conv2D)                                                     2[0][0]']                        
+                                                                                                  
+ ResUnit_L4_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L3_Output-p-1-1_AttnS3-
+ -2 (BatchNormalization)                                         2[0][0]']                        
+                                                                                                  
+ ResUnit_L5_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L4_Output-p-1-1_AttnS3-
+ -2 (Activation)                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L6_Output-p-1-1_AttnS3  (None, 8, 8, 128)   147456      ['ResUnit_L5_Output-p-1-1_AttnS3-
+ -2 (Conv2D)                                                     2[0][0]']                        
+                                                                                                  
+ ResUnit_L7_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L6_Output-p-1-1_AttnS3-
+ -2 (BatchNormalization)                                         2[0][0]']                        
+                                                                                                  
+ ResUnit_L8_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L7_Output-p-1-1_AttnS3-
+ -2 (Activation)                                                 2[0][0]']                        
+                                                                                                  
+ ResUnit_L9_Output-p-1-1_AttnS3  (None, 8, 8, 512)   65536       ['ResUnit_L8_Output-p-1-1_AttnS3-
+ -2 (Conv2D)                                                     2[0][0]']                        
+                                                                                                  
+ ResUnit_L10_Output-p-1-1_AttnS  (None, 8, 8, 512)   262144      ['ResUnit_L2_Output-p-1-1_AttnS3-
+ 3-2 (Conv2D)                                                    2[0][0]']                        
+                                                                                                  
+ ResUnit_L11_Output-p-1-1_AttnS  (None, 8, 8, 512)   0           ['ResUnit_L9_Output-p-1-1_AttnS3-
+ 3-2 (Add)                                                       2[0][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS3
+                                                                 -2[0][0]']                       
+                                                                                                  
+ ResUnit_L1_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Output-p-1-1_AttnS3
+ 3 (BatchNormalization)                                          -2[0][0]']                       
+                                                                                                  
+ ResUnit_L2_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Input-p-1-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Input-p-1-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Input-p-1-1_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Input-p-1-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Input-p-1-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Input-p-1-1_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_Input-p-1-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Input-p-1-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Input-p-1-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Input-p-1-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Input-p-1-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Input-p-1-1_AttnS3-3
+ -3 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_Input-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Input-p-1-1_AttnS3-3
+ -3 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Input-p-1-1_AttnS3-
+                                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ ttnS3-3 (BatchNormalization)                                    3[0][0]']                        
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (BatchNormalization)                                    tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (BatchNormalization)                                    tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-1_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Input-p-1-1_AttnS3-
+ 3 (BatchNormalization)                                          3[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-1_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-1_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-1_Mask_At
+ AttnS3-3 (Conv2D)                                               tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-1_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-1_Mask_At
+ AttnS3-3 (Add)                                                  tnS3-3[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-1_Mask_A
+                                                                 ttnS3-3[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L1_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-1_Mask_A
+ ttnS3-3 (BatchNormalization)                                    ttnS3-3[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-1_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L2_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   0           ['ResUnit_L1_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   65536       ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L3_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (BatchNormalization)                                    tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-1_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L4_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-1_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-1_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   147456      ['ResUnit_L5_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-1_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-1_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-1_AttnS3-3
+ -3 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L7_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   512         ['ResUnit_L6_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (BatchNormalization)                                    tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-1_AttnS3-3
+ -3 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-1_AttnS3-
+                                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L8_UpSamp-r-1-2_Mask_A  (None, 8, 8, 128)   0           ['ResUnit_L7_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Activation)                                            tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L1_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   2048        ['ResUnit_L11_Trunk-t-2-1_AttnS3-
+ 3 (BatchNormalization)                                          3[0][0]']                        
+                                                                                                  
+ ResUnit_L9_UpSamp-r-1-2_Mask_A  (None, 8, 8, 512)   65536       ['ResUnit_L8_UpSamp-r-1-2_Mask_At
+ ttnS3-3 (Conv2D)                                                tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L10_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   262144      ['ResUnit_L2_UpSamp-r-1-2_Mask_At
+ AttnS3-3 (Conv2D)                                               tnS3-3[0][0]']                   
+                                                                                                  
+ ResUnit_L2_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   0           ['ResUnit_L1_Trunk-t-2-2_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L11_UpSamp-r-1-2_Mask_  (None, 8, 8, 512)   0           ['ResUnit_L9_UpSamp-r-1-2_Mask_At
+ AttnS3-3 (Add)                                                  tnS3-3[0][0]',                   
+                                                                  'ResUnit_L10_UpSamp-r-1-2_Mask_A
+                                                                 ttnS3-3[0][0]']                  
+                                                                                                  
+ ResUnit_L3_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   65536       ['ResUnit_L2_Trunk-t-2-2_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L1_Attn_S3-3 (Bat  (None, 8, 8, 512)   2048        ['ResUnit_L11_UpSamp-r-1-2_Mask_A
+ chNormalization)                                                ttnS3-3[0][0]']                  
+                                                                                                  
+ ResUnit_L4_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L3_Trunk-t-2-2_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L2_Attn_S3-3 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L1_Attn_S3-3[0][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L5_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L4_Trunk-t-2-2_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L3_Attn_S3-3 (Con  (None, 8, 8, 512)   262144      ['SpcConv_Mask_L2_Attn_S3-3[0][0]
+ v2D)                                                            ']                               
+                                                                                                  
+ ResUnit_L6_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   147456      ['ResUnit_L5_Trunk-t-2-2_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L4_Attn_S3-3 (Bat  (None, 8, 8, 512)   2048        ['SpcConv_Mask_L3_Attn_S3-3[0][0]
+ chNormalization)                                                ']                               
+                                                                                                  
+ ResUnit_L7_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   512         ['ResUnit_L6_Trunk-t-2-2_AttnS3-3
+ 3 (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L5_Attn_S3-3 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L4_Attn_S3-3[0][0]
+ ivation)                                                        ',                               
+                                                                  'SpcConv_Mask_L5_Attn_S3-3[0][0]
+                                                                 ']                               
+                                                                                                  
+ ResUnit_L8_Trunk-t-2-2_AttnS3-  (None, 8, 8, 128)   0           ['ResUnit_L7_Trunk-t-2-2_AttnS3-3
+ 3 (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_Trunk-t-2-2_AttnS3-  (None, 8, 8, 512)   65536       ['ResUnit_L8_Trunk-t-2-2_AttnS3-3
+ 3 (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   262144      ['ResUnit_L2_Trunk-t-2-2_AttnS3-3
+ -3 (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ SpcConv_Mask_L7_Attn_S3-3 (Act  (None, 8, 8, 512)   0           ['SpcConv_Mask_L5_Attn_S3-3[1][0]
+ ivation)                                                        ']                               
+                                                                                                  
+ ResUnit_L11_Trunk-t-2-2_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L9_Trunk-t-2-2_AttnS3-3
+ -3 (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_Trunk-t-2-2_AttnS3-
+                                                                 3[0][0]']                        
+                                                                                                  
+ Mult_L1_AttnS3-3 (Multiply)    (None, 8, 8, 512)    0           ['SpcConv_Mask_L7_Attn_S3-3[0][0]
+                                                                 ',                               
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 3[0][0]']                        
+                                                                                                  
+ Add_L1_AttnS3-3 (Add)          (None, 8, 8, 512)    0           ['Mult_L1_AttnS3-3[0][0]',       
+                                                                  'ResUnit_L11_Trunk-t-2-2_AttnS3-
+                                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L1_Output-p-1-1_AttnS3  (None, 8, 8, 512)   2048        ['Add_L1_AttnS3-3[0][0]']        
+ -3 (BatchNormalization)                                                                          
+                                                                                                  
+ ResUnit_L2_Output-p-1-1_AttnS3  (None, 8, 8, 512)   0           ['ResUnit_L1_Output-p-1-1_AttnS3-
+ -3 (Activation)                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L3_Output-p-1-1_AttnS3  (None, 8, 8, 128)   65536       ['ResUnit_L2_Output-p-1-1_AttnS3-
+ -3 (Conv2D)                                                     3[0][0]']                        
+                                                                                                  
+ ResUnit_L4_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L3_Output-p-1-1_AttnS3-
+ -3 (BatchNormalization)                                         3[0][0]']                        
+                                                                                                  
+ ResUnit_L5_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L4_Output-p-1-1_AttnS3-
+ -3 (Activation)                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L6_Output-p-1-1_AttnS3  (None, 8, 8, 128)   147456      ['ResUnit_L5_Output-p-1-1_AttnS3-
+ -3 (Conv2D)                                                     3[0][0]']                        
+                                                                                                  
+ ResUnit_L7_Output-p-1-1_AttnS3  (None, 8, 8, 128)   512         ['ResUnit_L6_Output-p-1-1_AttnS3-
+ -3 (BatchNormalization)                                         3[0][0]']                        
+                                                                                                  
+ ResUnit_L8_Output-p-1-1_AttnS3  (None, 8, 8, 128)   0           ['ResUnit_L7_Output-p-1-1_AttnS3-
+ -3 (Activation)                                                 3[0][0]']                        
+                                                                                                  
+ ResUnit_L9_Output-p-1-1_AttnS3  (None, 8, 8, 512)   65536       ['ResUnit_L8_Output-p-1-1_AttnS3-
+ -3 (Conv2D)                                                     3[0][0]']                        
+                                                                                                  
+ ResUnit_L10_Output-p-1-1_AttnS  (None, 8, 8, 512)   262144      ['ResUnit_L2_Output-p-1-1_AttnS3-
+ 3-3 (Conv2D)                                                    3[0][0]']                        
+                                                                                                  
+ ResUnit_L11_Output-p-1-1_AttnS  (None, 8, 8, 512)   0           ['ResUnit_L9_Output-p-1-1_AttnS3-
+ 3-3 (Add)                                                       3[0][0]',                        
+                                                                  'ResUnit_L10_Output-p-1-1_AttnS3
+                                                                 -3[0][0]']                       
+                                                                                                  
+ ResUnit_L1_NotAttnModule_4_NoD  (None, 8, 8, 512)   2048        ['ResUnit_L11_Output-p-1-1_AttnS3
+ S (BatchNormalization)                                          -3[0][0]']                       
+                                                                                                  
+ ResUnit_L2_NotAttnModule_4_NoD  (None, 8, 8, 512)   0           ['ResUnit_L1_NotAttnModule_4_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_NotAttnModule_4_NoD  (None, 8, 8, 256)   131072      ['ResUnit_L2_NotAttnModule_4_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_NotAttnModule_4_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L3_NotAttnModule_4_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_NotAttnModule_4_NoD  (None, 8, 8, 256)   0           ['ResUnit_L4_NotAttnModule_4_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_NotAttnModule_4_NoD  (None, 8, 8, 256)   589824      ['ResUnit_L5_NotAttnModule_4_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_NotAttnModule_4_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L6_NotAttnModule_4_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_NotAttnModule_4_NoD  (None, 8, 8, 256)   0           ['ResUnit_L7_NotAttnModule_4_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_NotAttnModule_4_NoD  (None, 8, 8, 1024)  262144      ['ResUnit_L8_NotAttnModule_4_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_NotAttnModule_4_No  (None, 8, 8, 1024)  524288      ['ResUnit_L2_NotAttnModule_4_NoDS
+ DS (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_NotAttnModule_4_No  (None, 8, 8, 1024)  0           ['ResUnit_L9_NotAttnModule_4_NoDS
+ DS (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_NotAttnModule_4_NoD
+                                                                 S[0][0]']                        
+                                                                                                  
+ ResUnit_L1_NotAttnModule_5_NoD  (None, 8, 8, 1024)  4096        ['ResUnit_L11_NotAttnModule_4_NoD
+ S (BatchNormalization)                                          S[0][0]']                        
+                                                                                                  
+ ResUnit_L2_NotAttnModule_5_NoD  (None, 8, 8, 1024)  0           ['ResUnit_L1_NotAttnModule_5_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_NotAttnModule_5_NoD  (None, 8, 8, 256)   262144      ['ResUnit_L2_NotAttnModule_5_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_NotAttnModule_5_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L3_NotAttnModule_5_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_NotAttnModule_5_NoD  (None, 8, 8, 256)   0           ['ResUnit_L4_NotAttnModule_5_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_NotAttnModule_5_NoD  (None, 8, 8, 256)   589824      ['ResUnit_L5_NotAttnModule_5_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_NotAttnModule_5_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L6_NotAttnModule_5_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_NotAttnModule_5_NoD  (None, 8, 8, 256)   0           ['ResUnit_L7_NotAttnModule_5_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_NotAttnModule_5_NoD  (None, 8, 8, 1024)  262144      ['ResUnit_L8_NotAttnModule_5_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_NotAttnModule_5_No  (None, 8, 8, 1024)  1048576     ['ResUnit_L2_NotAttnModule_5_NoDS
+ DS (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_NotAttnModule_5_No  (None, 8, 8, 1024)  0           ['ResUnit_L9_NotAttnModule_5_NoDS
+ DS (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_NotAttnModule_5_NoD
+                                                                 S[0][0]']                        
+                                                                                                  
+ ResUnit_L1_NotAttnModule_6_NoD  (None, 8, 8, 1024)  4096        ['ResUnit_L11_NotAttnModule_5_NoD
+ S (BatchNormalization)                                          S[0][0]']                        
+                                                                                                  
+ ResUnit_L2_NotAttnModule_6_NoD  (None, 8, 8, 1024)  0           ['ResUnit_L1_NotAttnModule_6_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L3_NotAttnModule_6_NoD  (None, 8, 8, 256)   262144      ['ResUnit_L2_NotAttnModule_6_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L4_NotAttnModule_6_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L3_NotAttnModule_6_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L5_NotAttnModule_6_NoD  (None, 8, 8, 256)   0           ['ResUnit_L4_NotAttnModule_6_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L6_NotAttnModule_6_NoD  (None, 8, 8, 256)   589824      ['ResUnit_L5_NotAttnModule_6_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L7_NotAttnModule_6_NoD  (None, 8, 8, 256)   1024        ['ResUnit_L6_NotAttnModule_6_NoDS
+ S (BatchNormalization)                                          [0][0]']                         
+                                                                                                  
+ ResUnit_L8_NotAttnModule_6_NoD  (None, 8, 8, 256)   0           ['ResUnit_L7_NotAttnModule_6_NoDS
+ S (Activation)                                                  [0][0]']                         
+                                                                                                  
+ ResUnit_L9_NotAttnModule_6_NoD  (None, 8, 8, 1024)  262144      ['ResUnit_L8_NotAttnModule_6_NoDS
+ S (Conv2D)                                                      [0][0]']                         
+                                                                                                  
+ ResUnit_L10_NotAttnModule_6_No  (None, 8, 8, 1024)  1048576     ['ResUnit_L2_NotAttnModule_6_NoDS
+ DS (Conv2D)                                                     [0][0]']                         
+                                                                                                  
+ ResUnit_L11_NotAttnModule_6_No  (None, 8, 8, 1024)  0           ['ResUnit_L9_NotAttnModule_6_NoDS
+ DS (Add)                                                        [0][0]',                         
+                                                                  'ResUnit_L10_NotAttnModule_6_NoD
+                                                                 S[0][0]']                        
+                                                                                                  
+ BN_Out (BatchNormalization)    (None, 8, 8, 1024)   4096        ['ResUnit_L11_NotAttnModule_6_NoD
+                                                                 S[0][0]']                        
+                                                                                                  
+ ReLU_Out (Activation)          (None, 8, 8, 1024)   0           ['BN_Out[0][0]']                 
+                                                                                                  
+ AvgPool_Out (AveragePooling2D)  (None, 1, 1, 1024)  0           ['ReLU_Out[0][0]']               
+                                                                                                  
+ Flatten_Out (Flatten)          (None, 1024)         0           ['AvgPool_Out[0][0]']            
+                                                                                                  
+ Final_Out (Dense)              (None, 10)           10250       ['Flatten_Out[0][0]']            
+                                                                                                  
+==================================================================================================
+Total params: 18,159,722
+Trainable params: 18,104,298
+Non-trainable params: 55,424
+__________________________________________________________________________________________________
